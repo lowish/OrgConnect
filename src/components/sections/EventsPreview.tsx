@@ -1,0 +1,33 @@
+import { motion } from "framer-motion";
+import { SectionHeader } from "../ui/SectionHeader";
+import { EventCard } from "../ui/EventCard";
+import { events } from "../../data/events";
+import { stagger, viewportOnce } from "../../lib/motion";
+import { EventsArt } from "../layout/SectionArt";
+
+export function EventsPreview() {
+  return (
+    <section id="events" className="relative isolate py-20 sm:py-28">
+      <EventsArt />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SectionHeader
+          eyebrow="Events"
+          title="What's happening on campus"
+          description="Workshops, competitions, and info sessions from across the School of Computing — previewed here with sample data until official calendars are connected."
+        />
+
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {events.map((event) => (
+            <EventCard key={event.id} event={event} />
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}

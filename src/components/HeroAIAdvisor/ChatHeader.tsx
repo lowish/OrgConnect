@@ -1,0 +1,61 @@
+import { RotateCcw, Sparkles, X } from "lucide-react";
+
+interface ChatHeaderProps {
+  onReset: () => void;
+  /** When provided (floating widget), renders a close button. */
+  onClose?: () => void;
+}
+
+/** Identity strip: who you're talking to, that it's live, and a restart. */
+export function ChatHeader({ onReset, onClose }: ChatHeaderProps) {
+  return (
+    <div className="flex items-center justify-between border-b border-stone-200/60 px-4 py-3 dark:border-white/10">
+      <div className="flex items-center gap-2.5">
+        <span
+          aria-hidden
+          className="flex size-8 items-center justify-center rounded-lg
+            bg-gradient-to-br from-cardinal-600 to-gold-500 text-white"
+        >
+          <Sparkles className="size-4" />
+        </span>
+        <div className="leading-tight">
+          <p className="text-sm font-semibold text-stone-900 dark:text-white">
+            OrgConnect AI Advisor
+          </p>
+          <p className="flex items-center gap-1.5 font-mono text-[10px] text-stone-500 dark:text-stone-400">
+            <span aria-hidden className="size-1.5 rounded-full bg-stone-900 dark:bg-white" />
+            Online — ask me anything about SoC orgs
+          </p>
+        </div>
+      </div>
+      <div className="flex items-center gap-1">
+        <button
+          type="button"
+          onClick={onReset}
+          aria-label="Restart conversation"
+          title="Restart conversation"
+          className="flex size-8 items-center justify-center rounded-full text-stone-500
+            transition-colors hover:bg-stone-200/60 hover:text-stone-900
+            focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cardinal-600
+            dark:text-stone-400 dark:hover:bg-white/10 dark:hover:text-white"
+        >
+          <RotateCcw className="size-4" />
+        </button>
+        {onClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close chat"
+            title="Close chat"
+            className="flex size-8 items-center justify-center rounded-full text-stone-500
+              transition-colors hover:bg-stone-200/60 hover:text-stone-900
+              focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cardinal-600
+              dark:text-stone-400 dark:hover:bg-white/10 dark:hover:text-white"
+          >
+            <X className="size-4" />
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
