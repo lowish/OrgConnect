@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "../ui/Button";
 import { fadeUp, stagger } from "../../lib/motion";
-import { HeroArt } from "../layout/SectionArt";
 
 /** Opens the floating AI Advisor widget (see ChatWidget). */
 const openChat = () => window.dispatchEvent(new Event("orgconnect:open-chat"));
@@ -13,8 +12,6 @@ export function Hero() {
       id="home"
       className="relative isolate overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-24"
     >
-      {/* The landscape asterisk plate fills the home hero. */}
-      <HeroArt />
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
         <motion.div variants={stagger} initial="hidden" animate="visible">
           <motion.p

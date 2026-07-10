@@ -4,7 +4,6 @@ import type { Organization } from "../../types";
 import { OrgLogo } from "../ui/OrgLogo";
 import { fadeUp, stagger } from "../../lib/motion";
 import { getHostname } from "../../lib/orgLogo";
-import { SideRails } from "../layout/SectionArt";
 
 /**
  * The Organization Details page.
@@ -29,7 +28,6 @@ export function OrgDetail({
       variants={stagger}
       className="relative isolate pt-28 pb-20 sm:pt-32 sm:pb-24"
     >
-      <SideRails />
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <motion.button
           type="button"

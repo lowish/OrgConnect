@@ -4,7 +4,6 @@ import { OrgCard } from "../ui/OrgCard";
 import { organizations } from "../../data/organizations";
 import type { Organization } from "../../types";
 import { stagger, viewportOnce } from "../../lib/motion";
-import { SideRails } from "../layout/SectionArt";
 
 export function OrgShowcase({
   onSelectOrg,
@@ -13,7 +12,6 @@ export function OrgShowcase({
 }) {
   return (
     <section id="organizations" className="relative isolate py-20 sm:py-28">
-      <SideRails />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Organizations"

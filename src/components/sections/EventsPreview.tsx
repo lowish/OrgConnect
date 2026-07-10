@@ -3,12 +3,10 @@ import { SectionHeader } from "../ui/SectionHeader";
 import { EventCard } from "../ui/EventCard";
 import { events } from "../../data/events";
 import { stagger, viewportOnce } from "../../lib/motion";
-import { EventsArt } from "../layout/SectionArt";
 
 export function EventsPreview() {
   return (
     <section id="events" className="relative isolate py-20 sm:py-28">
-      <EventsArt />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Events"
