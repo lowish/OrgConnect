@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import type { Recommendation } from "./advisor";
 import { CompatibilityBadge } from "./CompatibilityBadge";
+import { OrgLogo } from "../ui/OrgLogo";
 
 /**
  * A rich recommendation rendered inside the conversation: who, how well they
@@ -25,14 +26,7 @@ export function RecommendationCard({
         dark:border-stone-700 dark:bg-stone-900 dark:shadow-black/30"
     >
       <div className="flex items-start gap-3">
-        <div
-          aria-hidden
-          className="flex size-10 shrink-0 items-center justify-center rounded-xl
-            bg-gradient-to-br from-cardinal-600 to-cardinal-800
-            font-mono text-xs font-semibold text-white"
-        >
-          {org.initials}
-        </div>
+        <OrgLogo org={org} className="size-10 text-xs" />
         <div className="min-w-0 flex-1">
           <h4 className="truncate text-sm font-semibold text-stone-900 dark:text-white">
             {org.shortName}
