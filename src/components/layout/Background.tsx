@@ -1,21 +1,39 @@
 /**
- * The fixed, full-viewport base field behind the entire app — soft mint in
- * light mode, an emerald void in dark, with a faint top-glow for depth.
+ * The fixed, full-viewport base field behind the entire app: a static rotated
+ * square grid — hairline gray rules on an off-white canvas.
  *
- * The asterisk artwork itself is now section-scoped (see SectionArt.tsx): the
- * landscape plate fills the home hero, and portrait rails frame the content
- * sections. This layer is just the quiet ground they sit on. It never moves,
- * sits at -z-50, and is pointer-events-none.
+ * Drawn entirely in CSS (no images, no gradients, no animation). The grid plane
+ * is rotated a few degrees and over-sized so the tilt never exposes an edge.
+ * It never moves, sits at -z-50, and is pointer-events-none.
  */
+
+/** Cell pitch and hairline weight for the grid rules. */
+const CELL = "88px";
+const LINE = "1px";
+
+/** One set of rules per axis, drawn as hard 1px stops (not a gradient wash). */
+const grid = (stroke: string) =>
+  `repeating-linear-gradient(to right, ${stroke} 0 ${LINE}, transparent ${LINE} ${CELL}),` +
+  `repeating-linear-gradient(to bottom, ${stroke} 0 ${LINE}, transparent ${LINE} ${CELL})`;
+
 export function Background() {
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 -z-50 overflow-hidden">
-      <div className="absolute inset-0 bg-[#eef3ee] dark:bg-[#04140d]" />
+      <div className="absolute inset-0 bg-[#fafaf9] dark:bg-[#0b0b0b]" />
+
+      {/* Rotated grid plane, scaled past the viewport so corners stay covered. */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 dark:hidden"
         style={{
-          background:
-            "radial-gradient(120% 80% at 50% -10%, rgba(0,255,102,0.07), transparent 55%)",
+          backgroundImage: grid("rgba(0,0,0,0.09)"),
+          transform: "rotate(-6deg) scale(1.4)",
+        }}
+      />
+      <div
+        className="absolute inset-0 hidden dark:block"
+        style={{
+          backgroundImage: grid("rgba(255,255,255,0.07)"),
+          transform: "rotate(-6deg) scale(1.4)",
         }}
       />
     </div>
