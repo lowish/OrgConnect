@@ -1,4 +1,4 @@
-import { Compass, Facebook, Github, Instagram } from "lucide-react";
+import {Facebook, Github, Instagram } from "lucide-react";
 
 const PLATFORM_LINKS = [
   { label: "Home", href: "#home" },
@@ -6,14 +6,17 @@ const PLATFORM_LINKS = [
   { label: "Events", href: "#events" },
 ];
 
-const UNIVERSITY_LINKS = [
+const ABOUT_LINKS = [
   { label: "Holy Angel University", href: "https://www.hau.edu.ph" },
   { label: "School of Computing", href: "https://www.hau.edu.ph/academics/school-of-computing" },
 ];
 
+const PAGES_LINKS = [
+  { label: "Student Council SOC", href: "https://www.facebook.com/haucscsoc" },
+];
 const SOCIALS = [
-  { label: "Facebook", href: "#", Icon: Facebook },
-  { label: "Instagram", href: "#", Icon: Instagram },
+  { label: "Facebook", href: "https://www.facebook.com/holyangel1933", Icon: Facebook },
+  { label: "Instagram", href: "https://www.instagram.com/holyangel1933", Icon: Instagram },
   { label: "GitHub", href: "#", Icon: Github },
 ];
 
@@ -90,23 +93,11 @@ export function Footer() {
             </div>
           </div>
 
-          <LinkColumn title="Platform" links={PLATFORM_LINKS} />
-          <LinkColumn title="University" links={UNIVERSITY_LINKS} external />
+          <LinkColumn title="Quick Links" links={PLATFORM_LINKS} />
+          <LinkColumn title="About" links={ABOUT_LINKS} external />
+          <LinkColumn title="Pages" links={PAGES_LINKS} external />
 
-          <div>
-            <h3 className="font-mono text-xs font-medium tracking-[0.18em] text-stone-500 uppercase dark:text-white">
-              Campus
-            </h3>
-            <address className="mt-4 text-sm leading-relaxed text-stone-600 not-italic dark:text-stone-400">
-              School of Computing
-              <br />
-              Holy Angel University
-              <br />
-              Angeles City, Pampanga
-            </address>
-          </div>
         </div>
-
         <div
           className="mt-14 flex flex-col gap-3 border-t border-stone-200 pt-8
             sm:flex-row sm:items-center sm:justify-between dark:border-stone-800"
