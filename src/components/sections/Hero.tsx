@@ -52,8 +52,8 @@ export function Hero() {
               <ArrowRight className="size-4" />
             </Button>
             <Button variant="secondary" size="lg" onClick={openChat}>
-              <Sparkles className="size-4 text-gold-500" />
               ChatBot
+              <Sparkles className="size-4 text-gold-500" />
             </Button>
           </motion.div>
 
@@ -61,7 +61,9 @@ export function Hero() {
             variants={fadeUp}
             className="mt-8 font-mono text-xs text-stone-500 dark:text-stone-400"
           >
-            {"Holy Angel University · School of Computing"}
+            <p className="font-mono text-xs text-stone-500 dark:text-white">
+              {"Holy Angel University · School of Computing"}
+            </p>
           </motion.p>
         </motion.div>
       </div>

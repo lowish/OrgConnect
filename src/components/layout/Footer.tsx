@@ -61,7 +61,7 @@ function LinkColumn({
 
 export function Footer() {
   return (
-    <footer className="border-t border-stone-200 dark:border-stone-800">
+    <footer className="border-t border-stone-300 dark:border-stone-700">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
@@ -99,11 +99,11 @@ export function Footer() {
 
         </div>
         <div
-          className="mt-14 flex flex-col gap-3 border-t border-stone-200 pt-8
-            sm:flex-row sm:items-center sm:justify-between dark:border-stone-800"
+          className="mt-14 flex flex-col gap-3 border-t border-stone-300 pt-8
+            sm:flex-row sm:items-center sm:justify-between dark:border-stone-700"
         >
           <p className="font-mono text-[13px] text-stone-400 dark:text-white">
-            created by princetan.
+            developed by princetan.
           </p>
           <p className="text-[13px] text-stone-500 dark:text-stone-200">
             © 2026 OrgConnect
