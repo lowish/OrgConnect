@@ -1,5 +1,8 @@
 node_modules/
 dist/
 tsconfig.tsbuildinfo
-.claude/
 .DS_Store
+
+# Local env files (keep .env.example tracked)
+.env.local
+.env.*.local
