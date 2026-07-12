@@ -7,6 +7,7 @@ import { Hero } from "./components/sections/Hero";
 import { Wordmark } from "./components/sections/Wordmark";
 import { OrgShowcase } from "./components/sections/OrgShowcase";
 import { EventsPreview } from "./components/sections/EventsPreview";
+import { ConnectStudents } from "./components/sections/ConnectStudents";
 import { OrgDetail } from "./components/sections/OrgDetail";
 import { ChatWidget } from "./components/HeroAIAdvisor/ChatWidget";
 import type { Organization } from "./types";
@@ -36,6 +37,7 @@ export default function App() {
             <Wordmark />
             <OrgShowcase onSelectOrg={selectOrg} />
             <EventsPreview />
+            <ConnectStudents />
           </>
         )}
       </main>
