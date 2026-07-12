@@ -30,11 +30,6 @@ export function OrgShowcase({
             <OrgCard key={org.id} org={org} onSelect={onSelectOrg} />
           ))}
         </motion.div>
-
-        <p className="mt-8 font-mono text-xs text-stone-500 dark:text-stone-500">
-          Organization names verified against official HAU sources. Cards marked
-          “Needs verification” carry details pending confirmation from the org itself.
-        </p>
       </div>
     </section>
   );

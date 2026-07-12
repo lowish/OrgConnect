@@ -1,4 +1,4 @@
-import { RotateCcw, Sparkles, X } from "lucide-react";
+import { RotateCcw, X } from "lucide-react";
 
 interface ChatHeaderProps {
   onReset: () => void;
@@ -11,20 +11,13 @@ export function ChatHeader({ onReset, onClose }: ChatHeaderProps) {
   return (
     <div className="flex items-center justify-between border-b border-stone-200/60 px-4 py-3 dark:border-white/10">
       <div className="flex items-center gap-2.5">
-        <span
-          aria-hidden
-          className="flex size-8 items-center justify-center rounded-lg
-            bg-gradient-to-br from-cardinal-600 to-gold-500 text-white"
-        >
-          <Sparkles className="size-4" />
-        </span>
         <div className="leading-tight">
           <p className="text-sm font-semibold text-stone-900 dark:text-white">
             OrgConnect AI Advisor
           </p>
           <p className="flex items-center gap-1.5 font-mono text-[10px] text-stone-500 dark:text-stone-400">
             <span aria-hidden className="size-1.5 rounded-full bg-stone-900 dark:bg-white" />
-            Online — ask me anything about SoC orgs
+            Online ask me anything about SOC orgs
           </p>
         </div>
       </div>
