@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, ShieldAlert } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import type { Organization } from "../../types";
 import { fadeUp } from "../../lib/motion";
 import { OrgLogo } from "./OrgLogo";
@@ -74,17 +74,6 @@ export function OrgCard({
               group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
           />
         </button>
-
-        {!org.verified && (
-          <span
-            title="This organization's details are pending confirmation from official sources."
-            className="inline-flex items-center gap-1 rounded-full bg-gold-300/30 px-2.5 py-1
-              font-mono text-[10px] font-medium text-gold-500 dark:bg-gold-500/10 dark:text-gold-400"
-          >
-            <ShieldAlert className="size-3" />
-            Needs verification
-          </span>
-        )}
       </div>
     </motion.article>
   );
