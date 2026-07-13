@@ -41,9 +41,11 @@ export function ChatWidget() {
   }, [open, closeChat]);
 
   return (
-    <div className="fixed right-4 bottom-4 z-50 flex flex-col items-end gap-3 sm:right-6 sm:bottom-6">
-      {/* Kept mounted so the conversation survives close/reopen — we only
-          animate visibility and drop pointer events when hidden. */}
+    // pointer-events-none on the container so its (tall, mostly-empty) fixed box
+    // never intercepts page clicks behind it; interactive children opt back in.
+    <div className="pointer-events-none fixed right-4 bottom-4 z-50 flex flex-col items-end gap-3 sm:right-6 sm:bottom-6">
+      {/* Kept mounted so the conversation survives close/reopen — we animate
+          visibility and only enable pointer events while the panel is open. */}
       <motion.div
         role="dialog"
         aria-label="OrgConnect AI Advisor"
@@ -58,7 +60,7 @@ export function ChatWidget() {
         }
         transition={{ duration: reducedMotion ? 0 : 0.25, ease: [0.21, 0.47, 0.32, 0.98] }}
         className={`w-[calc(100vw-2rem)] max-w-[400px] origin-bottom-right ${
-          open ? "" : "pointer-events-none"
+          open ? "pointer-events-auto" : "pointer-events-none"
         }`}
       >
         <AIChat onClose={closeChat} />
@@ -70,7 +72,7 @@ export function ChatWidget() {
         whileTap={{ scale: 0.96 }}
         aria-expanded={open}
         aria-label={open ? "Close AI Advisor" : "Discover organizations with the AI Advisor"}
-        className="inline-flex items-center gap-2.5 rounded-full bg-white py-3 pr-5 pl-3.5
+        className="pointer-events-auto inline-flex items-center gap-2.5 rounded-full bg-white py-3 pr-5 pl-3.5
           font-medium text-stone-900 shadow-lg shadow-stone-900/10 ring-1 ring-stone-900/10
           transition-all hover:-translate-y-0.5 hover:shadow-xl
           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cardinal-600
