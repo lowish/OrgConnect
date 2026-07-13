@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight} from "lucide-react";
 import { Button } from "../ui/Button";
 import { fadeUp, stagger } from "../../lib/motion";
 
@@ -25,12 +25,12 @@ export function Hero() {
             className="mt-5 text-5xl font-semibold tracking-tight text-balance
               text-stone-900 sm:text-6xl lg:text-7xl dark:text-white"
           >
-            Find your place in the{" "}
+            Discover Organizations {" "}
             <span
               className="mt-5 text-5xl font-semibold tracking-tight text-balance
               text-stone-900 sm:text-6xl lg:text-7xl dark:text-white"
             >
-              School of Computing
+            Connect with Students
             </span>
             .
           </motion.h1>
@@ -39,21 +39,17 @@ export function Hero() {
             variants={fadeUp}
             className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-stone-600 dark:text-stone-300"
           >
-            Explore what each organization does, the skills you can develop, and the opportunities available. 
-            Let the AI ChatBot help you find the organization that fits your interests and goals.
+            Explore official School of Computing organizations, and find where you belong. 
+            Let the AI Advisor recommend organizations that match your interests and goals, and connect with fellow School of Computing.
           </motion.p>
 
           <motion.div
             variants={fadeUp}
             className="mt-10 flex flex-wrap items-center justify-center gap-3"
           >
-            <Button href="#organizations" size="lg">
-              Explore
+            <Button href="#students" size="lg" className="rounded-none">
+              Build Your Network
               <ArrowRight className="size-4" />
-            </Button>
-            <Button variant="secondary" size="lg" onClick={openChat}>
-              ChatBot
-              <Sparkles className="size-4 text-gold-500" />
             </Button>
           </motion.div>
 
