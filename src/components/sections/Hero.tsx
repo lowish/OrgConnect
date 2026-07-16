@@ -57,7 +57,7 @@ export function Hero() {
             variants={fadeUp}
             className="mt-8 font-mono text-xs text-stone-500 dark:text-stone-400"
           >
-            <p className="font-mono text-xs text-stone-500 dark:text-white">
+            <p className="font-mono text-xs text-stone-900 dark:text-white">
               {"Holy Angel University · School of Computing"}
             </p>
           </motion.p>
