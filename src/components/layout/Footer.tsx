@@ -9,10 +9,12 @@ const PLATFORM_LINKS = [
 const ABOUT_LINKS = [
   { label: "Holy Angel University", href: "https://www.hau.edu.ph" },
   { label: "School of Computing", href: "https://www.hau.edu.ph/academics/school-of-computing" },
+  { label: "Student Council SOC", href: "https://www.facebook.com/haucscsoc" },
 ];
 
-const PAGES_LINKS = [
-  { label: "Student Council SOC", href: "https://www.facebook.com/haucscsoc" },
+const SUPPORT_LINKS = [
+  { label: "Terms of Use", href: "#legal/terms-of-use" },
+  { label: "Privacy Policy", href: "#legal/privacy-policy" },
 ];
 const SOCIALS = [
   { label: "Facebook", href: "https://www.facebook.com/holyangel1933", Icon: Facebook },
@@ -31,7 +33,7 @@ function LinkColumn({
 }) {
   return (
     <div>
-      <h3 className="font-mono text-xs font-medium tracking-[0.18em] text-stone-500 uppercase dark:text-white">
+      <h3 className="font-mono text-s font-medium tracking-[0.18em] text-stone-900 uppercase dark:text-white">
         {title}
       </h3>
       <ul className="mt-4 space-y-3">
@@ -66,7 +68,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <a href="#home" className="flex items-center gap-2.5">
-              <span className="text-lg font-semibold tracking-tight text-stone-900 dark:text-white">
+              <span className="text-xl font-semibold tracking-tight text-stone-900 dark:text-white">
                 OrgConnect
               </span>
             </a>
@@ -81,10 +83,10 @@ export function Footer() {
                   href={href}
                   aria-label={`${label} (coming soon)`}
                   title={`${label} — coming soon`}
-                  className="flex size-9 items-center justify-center rounded-full border
-                    border-stone-200 text-stone-500 transition-colors
+                  className="flex size-12 items-center justify-center rounded-full border
+                    border-stone-200 text-stone-900 transition-colors
                     hover:border-cardinal-300 hover:text-cardinal-600
-                    dark:border-stone-700 dark:text-stone-400
+                    dark:border-stone-700 dark:text-white
                     dark:hover:border-cardinal-800 dark:hover:text-cardinal-400"
                 >
                   <Icon className="size-4" />
@@ -95,17 +97,17 @@ export function Footer() {
 
           <LinkColumn title="Quick Links" links={PLATFORM_LINKS} />
           <LinkColumn title="About" links={ABOUT_LINKS} external />
-          <LinkColumn title="Pages" links={PAGES_LINKS} external />
+          <LinkColumn title="Legal" links={SUPPORT_LINKS} />
 
         </div>
         <div
           className="mt-14 flex flex-col gap-3 border-t border-stone-300 pt-8
             sm:flex-row sm:items-center sm:justify-between dark:border-stone-700"
         >
-          <p className="font-mono text-[13px] text-stone-400 dark:text-white">
+          <p className="font-mono text-[13px] text-stone-900 dark:text-white">
             developed by princetan.
           </p>
-          <p className="text-[13px] text-stone-500 dark:text-stone-200">
+          <p className="text-[13px] text-stone-900 dark:text-stone-200">
             © 2026 OrgConnect
           </p>
         </div>
