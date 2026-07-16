@@ -11,7 +11,7 @@ export function EventsPreview() {
         <SectionHeader
           eyebrow="Events"
           title="What's happening on campus"
-          description="Workshops, competitions, and info sessions from across the School of Computing — previewed here with sample data until official calendars are connected."
+          description="Workshops, competitions, and info sessions from across the School of Computing shown here as archived org events."
         />
 
         <motion.div
@@ -25,6 +25,10 @@ export function EventsPreview() {
             <EventCard key={event.id} event={event} />
           ))}
         </motion.div>
+
+        <p className="mt-8 font-mono text-sm text-stone-500 dark:text-stone-400">
+          For more incoming events, keep updated with their fb pages.
+        </p>
       </div>
     </section>
   );
