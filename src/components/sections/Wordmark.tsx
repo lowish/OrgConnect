@@ -17,12 +17,12 @@ export function Wordmark() {
         sm:py-14 dark:border-white/10"
     >
       <div className="flex items-center justify-center gap-5 px-4 text-2xl sm:gap-8 sm:text-6xl lg:text-8xl">
-        <span className={gradientText}>DISCOVER</span>
+        <span className={gradientText}>EXPLORE</span>
         <Asterisk
           className="size-7 shrink-0 text-neon sm:size-9 lg:size-30
             [filter:drop-shadow(0_0_16px_rgba(0,255,102,0.55))]"
         />
-        <span className={gradientText}>ORGANIZATIONS</span>
+        <span className={gradientText}>CONNECT</span>
       </div>
     </section>
   );
