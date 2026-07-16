@@ -1,4 +1,4 @@
-import { ArrowUpRight, CalendarPlus, MapPin } from "lucide-react";
+import { ArrowUpRight, CalendarPlus } from "lucide-react";
 import type { OrgEventItem, PastEventItem } from "../../schemas/organization";
 
 /** Format an ISO date like "2026-08-28" into "Aug 28, 2026". */
@@ -23,10 +23,6 @@ function UpcomingCard({ event }: { event: OrgEventItem }) {
       </h3>
       <p className="mt-2 text-sm leading-relaxed text-stone-600 dark:text-stone-400">
         {event.description}
-      </p>
-      <p className="mt-3 flex items-center gap-1.5 text-xs text-stone-500 dark:text-stone-500">
-        <MapPin className="size-3.5 shrink-0" aria-hidden />
-        {event.venue}
       </p>
     </article>
   );
