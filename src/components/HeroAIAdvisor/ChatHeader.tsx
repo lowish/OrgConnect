@@ -12,12 +12,9 @@ export function ChatHeader({ onReset, onClose }: ChatHeaderProps) {
     <div className="flex items-center justify-between border-b border-stone-200/60 px-4 py-3 dark:border-white/10">
       <div className="flex items-center gap-2.5">
         <div className="leading-tight">
-          <p className="text-sm font-semibold text-stone-900 dark:text-white">
+          <p className="flex items-center gap-1.5 text-sm font-semibold text-stone-900 dark:text-white">
+            <span aria-hidden className="size-1.5 rounded-full bg-stone-900 dark:bg-emerald-500" />
             OrgConnect AI Advisor
-          </p>
-          <p className="flex items-center gap-1.5 font-mono text-[10px] text-stone-500 dark:text-stone-400">
-            <span aria-hidden className="size-1.5 rounded-full bg-stone-900 dark:bg-white" />
-            Online ask me anything about SOC orgs
           </p>
         </div>
       </div>
