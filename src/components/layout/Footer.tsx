@@ -76,23 +76,6 @@ export function Footer() {
               Every School of Computing organization in one place, so you can
               find yours.
             </p>
-            <div className="mt-6 flex gap-2">
-              {SOCIALS.map(({ label, href, Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={`${label} (coming soon)`}
-                  title={`${label} — coming soon`}
-                  className="flex size-12 items-center justify-center rounded-full border
-                    border-stone-200 text-stone-900 transition-colors
-                    hover:border-cardinal-300 hover:text-cardinal-600
-                    dark:border-stone-700 dark:text-white
-                    dark:hover:border-cardinal-800 dark:hover:text-cardinal-400"
-                >
-                  <Icon className="size-4" />
-                </a>
-              ))}
-            </div>
           </div>
 
           <LinkColumn title="Quick Links" links={PLATFORM_LINKS} />
