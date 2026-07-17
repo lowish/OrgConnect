@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Circle } from "lucide-react";
 import { Button } from "../ui/Button";
 import { useTheme } from "../../lib/useTheme";
 
@@ -10,6 +10,33 @@ const NAV_LINKS = [
   { label: "Events", href: "#events" },
   { label: "Students", href: "#students" },
 ];
+
+const STUDENT_PROFILE_FORM_URL = "https://forms.gle/rB4Uid1sAvmaQR98A";
+
+const mobileMenuVariants = {
+  closed: {
+    opacity: 0,
+    height: 0,
+    clipPath: "inset(0 0 100% 0)",
+    transition: { duration: 0.2, ease: [0.4, 0, 1, 1] },
+  },
+  open: {
+    opacity: 1,
+    height: "auto",
+    clipPath: "inset(0 0 0% 0)",
+    transition: {
+      duration: 0.35,
+      ease: [0.22, 1, 0.36, 1],
+      when: "beforeChildren",
+      staggerChildren: 0.06,
+    },
+  },
+};
+
+const mobileItemVariants = {
+  closed: { opacity: 0, y: -8 },
+  open: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 520, damping: 34 } },
+};
 
 /**
  * The AI Assistant now lives in the floating <ChatWidget>, not an on-page
@@ -33,17 +60,27 @@ function Brand() {
 
 function ThemeToggle() {
   const { theme, toggle } = useTheme();
+
   return (
     <button
       type="button"
       onClick={toggle}
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-      className="flex size-9 items-center justify-center rounded-full text-stone-500
-        transition-colors hover:bg-stone-100 hover:text-stone-900
-        focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cardinal-600
-        dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-white"
+      className="relative flex h-9 w-9 items-center justify-center rounded-full text-stone-800
+        transition-colors hover:bg-stone-100
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cardinal-600
+        dark:text-stone-100 dark:hover:bg-stone-800"
     >
-      {theme === "dark" ? <Sun className="size-4.5" /> : <Moon className="size-4.5" />}
+      <span
+        aria-hidden="true"
+        className={`relative flex h-4 w-4 items-center justify-center rounded-full border border-current transition-transform duration-300 ${
+          theme === "dark" ? "rotate-180" : "rotate-0"
+        }`}
+      >
+        <span className="absolute inset-y-0 right-0 w-1/2 rounded-r-full bg-current opacity-90" />
+        <Circle className="h-4 w-4" strokeWidth={1.5} />
+      </span>
+      <span className="sr-only">Toggle theme</span>
     </button>
   );
 }
@@ -105,48 +142,76 @@ export function Navbar() {
         {/* Mobile */}
         <div className="flex items-center gap-1 md:hidden">
           <ThemeToggle />
-          <button
+          <motion.button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
             aria-expanded={menuOpen}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="flex size-9 items-center justify-center rounded-full text-stone-600
+            whileTap={{ scale: 0.92 }}
+            animate={menuOpen ? "open" : "closed"}
+            className="relative flex size-9 items-center justify-center rounded-full text-stone-600
               hover:bg-stone-100 dark:text-stone-400 dark:hover:bg-stone-800"
           >
-            {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
+            <span className="relative flex h-5 w-5 items-center justify-center">
+              <motion.span
+                className="absolute h-0.5 w-5 rounded-full bg-current"
+                variants={{
+                  closed: { rotate: 0, y: -5 },
+                  open: { rotate: 45, y: 0 },
+                }}
+                transition={{ type: "spring", stiffness: 550, damping: 28 }}
+              />
+              <motion.span
+                className="absolute h-0.5 w-5 rounded-full bg-current"
+                variants={{
+                  closed: { rotate: 0, y: 5 },
+                  open: { rotate: -45, y: 0 },
+                }}
+                transition={{ type: "spring", stiffness: 550, damping: 28 }}
+              />
+            </span>
+          </motion.button>
         </div>
       </nav>
 
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={mobileMenuVariants}
             className="overflow-hidden border-b border-stone-200 bg-stone-50/95 backdrop-blur-xl
               md:hidden dark:border-stone-800 dark:bg-stone-950/95"
           >
-            <div className="flex flex-col gap-1 px-4 py-4">
+            <motion.div variants={mobileMenuVariants} className="flex flex-col gap-1 px-4 py-4">
               {NAV_LINKS.map((link) => (
-                <a
+                <motion.a
                   key={link.href}
                   href={link.href}
                   onClick={(e) => {
                     handleNavClick(link.href, e);
                     setMenuOpen(false);
                   }}
+                  variants={mobileItemVariants}
+                  whileTap={{ scale: 0.98 }}
                   className="rounded-xl px-4 py-3 text-base font-medium text-stone-700
                     hover:bg-stone-100 dark:text-stone-300 dark:hover:bg-stone-800"
                 >
                   {link.label}
-                </a>
+                </motion.a>
               ))}
-              <Button href="#organizations" className="mt-2" onClick={() => setMenuOpen(false)}>
-                Explore
-              </Button>
-            </div>
+              <motion.div variants={mobileItemVariants}>
+                <Button
+                  href={STUDENT_PROFILE_FORM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Submit Profile
+                </Button>
+              </motion.div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
