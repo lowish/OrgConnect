@@ -43,7 +43,7 @@ export function ChatWidget() {
   return (
     // pointer-events-none on the container so its (tall, mostly-empty) fixed box
     // never intercepts page clicks behind it; interactive children opt back in.
-    <div className="pointer-events-none fixed right-4 bottom-4 z-50 flex flex-col items-end gap-3 sm:right-6 sm:bottom-6">
+    <div className="pointer-events-none fixed right-4 bottom-10 z-50 flex flex-col items-end gap-3 sm:right-6 sm:bottom-6">
       {/* Kept mounted so the conversation survives close/reopen — we animate
           visibility and only enable pointer events while the panel is open. */}
       <motion.div
@@ -72,7 +72,8 @@ export function ChatWidget() {
         whileTap={{ scale: 0.96 }}
         aria-expanded={open}
         aria-label={open ? "Close AI Advisor" : "Discover organizations with the AI Advisor"}
-        className="pointer-events-auto inline-flex items-center gap-2.5 rounded-full bg-white py-3 pr-5 pl-3.5
+        className="pointer-events-auto inline-flex size-11 items-center justify-center rounded-full bg-white
+          sm:h-auto sm:w-auto sm:justify-start sm:gap-2.5 sm:py-3 sm:pr-5 sm:pl-3.5
           font-medium text-stone-900 shadow-lg shadow-stone-900/10 ring-1 ring-stone-900/10
           transition-all hover:-translate-y-0.5 hover:shadow-xl
           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cardinal-600
@@ -89,9 +90,8 @@ export function ChatWidget() {
             <MessageCircle className="size-4" />
           )}
         </span>
-        <span className="flex items-center gap-1.5 text-sm tracking-wide">
-          {!open && <Sparkles aria-hidden className="size-3.5 text-gold-500" />}
-          {open ? "Close" : "Discover"}
+        <span className="hidden items-center gap-1.5 text-sm tracking-wide sm:flex">
+          {open ? "CLOSE" : "ASK QUESTIONS"}
         </span>
       </motion.button>
     </div>
