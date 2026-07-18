@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 65">
+  <!--
+    Browser tab strips are dark in dark mode and light in light mode, and a
+    single-color mark goes invisible on one of them. This flips with the OS
+    theme so the triangle stays legible in both.
+  -->
+  <style>
+    path { fill: #000; }
+    @media (prefers-color-scheme: dark) {
+      path { fill: #fff; }
+    }
+  </style>
+  <path d="M37.5274 0L75.0548 65H0L37.5274 0Z" />
+</svg>
