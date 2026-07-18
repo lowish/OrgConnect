@@ -1,3 +1,5 @@
+import { VercelLogo } from "../ui/VercelLogo";
+
 const PLATFORM_LINKS = [
   { label: "Home", href: "#home" },
   { label: "Organizations", href: "#organizations" },
@@ -60,6 +62,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <a href="#home" className="flex items-center gap-2.5">
+              <VercelLogo className="h-5 w-5 text-stone-900 dark:text-white" />
               <span className="text-xl font-semibold tracking-tight text-stone-900 dark:text-white">
                 OrgConnect
               </span>

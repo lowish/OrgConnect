@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Circle } from "lucide-react";
 import { Button } from "../ui/Button";
+import { VercelLogo } from "../ui/VercelLogo";
 import { useTheme } from "../../lib/useTheme";
 
 const NAV_LINKS = [
@@ -50,7 +51,8 @@ function handleNavClick(href: string, event: { preventDefault: () => void }) {
 
 function Brand() {
   return (
-    <a href="#home" className="flex items-center">
+    <a href="#home" className="flex items-center gap-2">
+      <VercelLogo className="h-4 w-4 text-stone-900 dark:text-white" />
       <span className="text-lg font-semibold tracking-tight text-stone-900 dark:text-white">
         OrgConnect
       </span>
