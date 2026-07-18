@@ -1,12 +1,3 @@
-<div align="center">
-
-<a href="https://orgconnect.vercel.app">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/vercel/FFFFFF" />
-    <img src="https://cdn.simpleicons.org/vercel/000000" width="72" alt="OrgConnect — deployed on Vercel" />
-  </picture>
-</a>
-
 # OrgConnect
 
 <p>
@@ -22,8 +13,6 @@
 **Every official Holy Angel University School of Computing organization in one place — with an AI advisor that matches you to the ones that fit.**
 
 **→ [orgconnect.vercel.app](https://orgconnect.vercel.app)**
-
-</div>
 
 Students currently rely on Facebook pages, posters, and word-of-mouth to find out which
 organizations exist and what they actually do. OrgConnect replaces that scattering with a
