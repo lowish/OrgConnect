@@ -37,8 +37,8 @@
   --color-brand-500: #b93a54;
   --color-brand-gold: #c08a2d;
 
-  /* The one pop of color in the monochrome UI: the neon-green asterisk,
-     matching the background artwork. Used by the marquee band. */
+  /* The one pop of color in the monochrome UI: the neon-green asterisk
+     divider. Used by the marquee band (see Wordmark.tsx). */
   --color-neon: #00ff66;
 }
 
@@ -55,13 +55,13 @@ html {
 
 body {
   @apply text-stone-900 antialiased dark:text-stone-100;
-  /* Base color sits under the fixed <Background> field (see Background.tsx).
-     Emerald void in dark, soft mint in light — echoing omsimos.com. */
-  background-color: #eef3ee;
+  /* Base color sits under the fixed <Background> grid (see Background.tsx).
+     Off-white canvas in light, near-black in dark. */
+  background-color: #fafaf9;
 }
 
 .dark body {
-  background-color: #04140d;
+  background-color: #0b0b0b;
 }
 
 ::selection {

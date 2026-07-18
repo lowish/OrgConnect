@@ -1,48 +1,80 @@
 import type { OrgEvent } from "../types";
 
 /**
- * SAMPLE DATA — every event below is illustrative and labeled as such in the
- * UI. Replace with real event data once official org calendars are connected.
+ * ARCHIVED EVENT DATA — these entries represent older org activities that the
+ * UI can show without implying a future calendar or live event prediction.
  */
 export const events: OrgEvent[] = [
   {
     id: "gdg-info-session",
-    title: "GDG on Campus: Info Session",
+    title: "AI Conference",
     orgShortName: "GDG on Campus HAU",
-    date: "2026-08-28",
-    venue: "SJH Auditorium",
+    date: "2025-08-28",
     description:
-      "Meet the core team, hear what's planned for the year, and find out how to join the campus developer community.",
-    isSample: true,
+      "The 1st Regional AI Conference, 'Reinventing Learning Through AI,' brought together students and developers for the AI Hack, Tech Talk, speakers, and a shared focus on career readiness and AI innovation.",
+    isSample: false,
+  },
+  {
+    id: "soc-leadership-forum",
+    title: "Tech Talk",
+    orgShortName: "SoC Student Council",
+    date: "2025-11-21",
+    description:
+      "Cultivating Career Readiness Among Foxes Through Dialogue and Technology Roadmap. This Tech Talk focuses on career readiness, technology pathways, and industry expectations.",
+    isSample: false,
+  },
+  {
+    id: "code-geeks-byteback",
+    title: "ByteBack",
+    orgShortName: "Code Geeks",
+    date: "2025-09-08",
+    description:
+      "An HTML and CSS competition that challenged participants to build, style, and present polished web pages.",
+    isSample: false,
   },
   {
     id: "cia-ctf-freshman",
-    title: "Capture the Flag: Freshman Edition",
+    title: "Capture the Flag",
     orgShortName: "CIA",
-    date: "2026-09-12",
-    venue: "Computing Labs, PGN Building",
+    date: "2025-09-12",
     description:
       "A beginner-friendly security challenge — crack ciphers, find hidden flags, and get a taste of ethical hacking.",
-    isSample: true,
+    isSample: false,
   },
   {
     id: "loop-algorithm-night",
-    title: "Algorithm Night",
+    title: "Code-To-Death: Alpha Sapphire Version",
     orgShortName: "LOOP",
-    date: "2026-09-19",
-    venue: "PGN 3F Lecture Hall",
+    date: "2025-09-19",
     description:
-      "Three hours, ten problems, live leaderboard. Bring a laptop and your favorite language.",
-    isSample: true,
+      "A Pokémon-inspired coding battle with fun and challenging tasks that test coding speed and problem-solving skills.",
+    isSample: false,
   },
   {
-    id: "maia-design-jam",
-    title: "Design Jam: Multimedia Showcase",
-    orgShortName: "MAIA",
-    date: "2026-09-26",
-    venue: "Multimedia Studio",
+    id: "aws-howsome-serverless-workshop",
+    title: "How AWSome works?",
+    orgShortName: "AWS SBG HAU",
+    date: "2025-08-23",
     description:
-      "An open studio night — student work on the walls, live design challenges, and portfolio feedback.",
-    isSample: true,
+      "A serverless workshop covering API Gateway, AWS Lambda, DynamoDB, S3, and CloudWatch for School of Computing students.",
+    isSample: false,
+  },
+  {
+    id: "mafia-emc-short-animations",
+    title: "MAFIA presents EMC Seniors' Short Animations",
+    orgShortName: "MAFIA",
+    date: "2025-04-26",
+    description:
+      "Annual animated film viewing featuring the outputs of BS Entertainment Multimedia Computing seniors.",
+    isSample: false,
+  },
+  {
+    id: "access-point-editorial-workshop",
+    title: "Editorial Workshop",
+    orgShortName: "The Access Point",
+    date: "2025-09-30",
+    description:
+      "A writing and editing session for student journalists covering news, opinion, feature, and literary pieces.",
+    isSample: false,
   },
 ];

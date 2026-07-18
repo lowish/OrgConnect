@@ -311,9 +311,7 @@ export const organizations: Organization[] = [
     skills: [
       "Journalism",
       "News Writing",
-      "Feature Writing",
       "Editing",
-      "Writing",
       "Photojournalism",
     ],
     verified: false,

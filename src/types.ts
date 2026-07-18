@@ -7,6 +7,27 @@ export interface Organization {
   description: string;
   skills: string[];
   /**
+   * The official knowledge base's goal statement, stored imperatively ("Build a
+   * community of…") so the advisor can compose it into a sentence. Absent only
+   * when the org's focus is still unconfirmed.
+   */
+  goal?: string;
+  mission?: string;
+  /**
+   * "What the organization offers", verbatim from the knowledge base. This is
+   * the ONLY list the advisor may draw activities from — it must never name a
+   * workshop, event, or technology that doesn't appear here.
+   */
+  offers?: string[];
+  /** "Best suited for students who…", verbatim. Drives the why-it-fits sentence. */
+  bestFor?: string[];
+  /**
+   * "What you'll gain" — short outcome summaries shown on the details page.
+   * UI-only and grounded in the org's stated goal/offers; NOT an advisor source
+   * (the advisor still draws activities only from `offers`).
+   */
+  gains?: string[];
+  /**
    * True only when description/skills were confirmed against an official
    * source. Unverified orgs render a "Details need verification" badge —
    * never silently guessed content.
@@ -22,6 +43,11 @@ export interface Organization {
    * falls back to the initials placeholder.
    */
   officialUrl?: string;
+  /**
+   * The org's own website, when it has one beyond its official social page.
+   * Shown as a primary link on the details page and in "Contact us".
+   */
+  website?: string;
 }
 
 export interface OrgEvent {
@@ -30,7 +56,6 @@ export interface OrgEvent {
   orgShortName: string;
   /** ISO date string, e.g. "2026-08-28" */
   date: string;
-  venue: string;
   description: string;
   /** Sample events are labeled in the UI until official calendars are connected. */
   isSample: boolean;

@@ -9,11 +9,9 @@ import { useOrgLogo } from "../../lib/useOrgLogo";
 export function LogoPlaceholder({
   initials,
   className = "",
-  loading = false,
 }: {
   initials: string;
   className?: string;
-  loading?: boolean;
 }) {
   return (
     <div
@@ -21,7 +19,7 @@ export function LogoPlaceholder({
       className={`flex shrink-0 items-center justify-center rounded-xl
         bg-gradient-to-br from-cardinal-600 to-cardinal-800
         font-mono font-semibold text-white shadow-sm shadow-cardinal-900/20
-        ${loading ? "animate-pulse" : ""} ${className}`}
+        ${className}`}
     >
       {initials}
     </div>
@@ -48,11 +46,7 @@ export function OrgLogo({
 
   if (status !== "resolved" || !url || broken) {
     return (
-      <LogoPlaceholder
-        initials={org.initials}
-        className={className}
-        loading={status === "loading"}
-      />
+      <LogoPlaceholder initials={org.initials} className={className} />
     );
   }
 

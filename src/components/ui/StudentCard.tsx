@@ -1,8 +1,6 @@
 import { useState, type ComponentType } from "react";
-import { motion } from "framer-motion";
 import { Facebook, Github, Globe, Linkedin, Quote } from "lucide-react";
 import type { Student } from "../../schemas/student";
-import { fadeUp } from "../../lib/motion";
 
 const MAX_VISIBLE_INTERESTS = 5;
 
@@ -123,8 +121,7 @@ export function StudentCard({ student }: { student: Student }) {
   const meta = [student.course, student.yearLevel].filter(Boolean).join(" · ");
 
   return (
-    <motion.article
-      variants={fadeUp}
+    <article
       className="group flex flex-col rounded-2xl border border-stone-200 bg-white p-6
         shadow-sm transition-all duration-300
         hover:-translate-y-1 hover:border-cardinal-200 hover:shadow-xl hover:shadow-stone-900/5
@@ -175,6 +172,6 @@ export function StudentCard({ student }: { student: Student }) {
       </div>
 
       <SocialLinks student={student} />
-    </motion.article>
+    </article>
   );
 }

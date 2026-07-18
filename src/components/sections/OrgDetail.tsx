@@ -1,5 +1,4 @@
 import type { ComponentType, ReactNode } from "react";
-import { motion } from "framer-motion";
 import {
   ArrowLeft,
   CalendarDays,
@@ -16,7 +15,6 @@ import type { Organization } from "../../types";
 import { OrgLogo } from "../ui/OrgLogo";
 import { EventCard } from "../ui/EventCard";
 import { events } from "../../data/events";
-import { fadeUp, stagger } from "../../lib/motion";
 import { getHostname } from "../../lib/orgLogo";
 
 /**
@@ -38,32 +36,19 @@ export function OrgDetail({
   const orgEvents = events.filter((e) => e.orgShortName === org.shortName);
 
   return (
-    <motion.section
-      initial="hidden"
-      animate="visible"
-      variants={stagger}
-      className="relative isolate pt-28 pb-20 sm:pt-32 sm:pb-24"
-    >
+    <section className="relative isolate pt-28 pb-20 sm:pt-32 sm:pb-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <motion.button
-          type="button"
-          variants={fadeUp}
-          onClick={onBack}
-          className="inline-flex items-center gap-1.5 font-mono text-xs font-medium
-            text-stone-500 transition-colors hover:text-cardinal-600
-            focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cardinal-600
-            dark:text-stone-400 dark:hover:text-cardinal-400"
-        >
+        <button type="button" onClick={onBack} className="inline-flex items-center gap-1.5 font-mono text-xs font-medium
+            text-stone-500 focus-visible:outline-2
+            focus-visible:outline-offset-4 focus-visible:outline-cardinal-600
+            dark:text-stone-400">
           <ArrowLeft className="size-4" />
-          All organizations
-        </motion.button>
+          BACK TO ORG
+        </button>
 
         {/* HERO — auto-fetched logo lives here. */}
-        <motion.div
-          variants={fadeUp}
-          className="mt-8 flex flex-col items-start gap-6 border-b border-stone-200
-            pb-10 sm:flex-row sm:items-center dark:border-stone-800"
-        >
+        <div className="mt-8 flex flex-col items-start gap-6 border-b border-stone-200
+            pb-10 sm:flex-row sm:items-center dark:border-stone-800">
           <OrgLogo org={org} className="size-24 text-2xl sm:size-28" />
 
           <div className="min-w-0">
@@ -116,7 +101,7 @@ export function OrgDetail({
               )}
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* ABOUT + goal + mission */}
         <Section title="About">
@@ -238,19 +223,19 @@ export function OrgDetail({
           </div>
         </Section>
       </div>
-    </motion.section>
+    </section>
   );
 }
 
 /** A titled, fade-up content block matching the page's `// heading` rhythm. */
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <motion.div variants={fadeUp} className="mt-10">
+    <div className="mt-10">
       <h2 className="font-mono text-xs font-medium tracking-[0.2em] text-stone-900 uppercase dark:text-white">
         {`// ${title}`}
       </h2>
       <div className="mt-4">{children}</div>
-    </motion.div>
+    </div>
   );
 }
 

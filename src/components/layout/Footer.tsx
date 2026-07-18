@@ -1,5 +1,3 @@
-import {Facebook, Github, Instagram } from "lucide-react";
-
 const PLATFORM_LINKS = [
   { label: "Home", href: "#home" },
   { label: "Organizations", href: "#organizations" },
@@ -16,12 +14,6 @@ const SUPPORT_LINKS = [
   { label: "Terms of Use", href: "#legal/terms-of-use" },
   { label: "Privacy Policy", href: "#legal/privacy-policy" },
 ];
-const SOCIALS = [
-  { label: "Facebook", href: "https://www.facebook.com/holyangel1933", Icon: Facebook },
-  { label: "Instagram", href: "https://www.instagram.com/holyangel1933", Icon: Instagram },
-  { label: "GitHub", href: "#", Icon: Github },
-];
-
 function LinkColumn({
   title,
   links,

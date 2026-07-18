@@ -1,6 +1,3 @@
-import { motion } from "framer-motion";
-import { fadeUp, stagger, viewportOnce } from "../../lib/motion";
-
 interface SectionHeaderProps {
   eyebrow: string;
   title: string;
@@ -22,40 +19,31 @@ export function SectionHeader({
   align = "left",
 }: SectionHeaderProps) {
   return (
-    <motion.div
-      variants={stagger}
-      initial="hidden"
-      whileInView="visible"
-      viewport={viewportOnce}
-      className={`max-w-2xl ${align === "center" ? "mx-auto text-center" : ""}`}
-    >
-      <motion.p
-        variants={fadeUp}
+    <div className={`max-w-2xl ${align === "center" ? "mx-auto text-center" : ""}`}>
+      <p
         className={`font-mono text-xs font-medium tracking-[0.2em] uppercase ${
           onDark ? "text-cardinal-300" : "text-cardinal-600 dark:text-cardinal-400"
         }`}
       >
         {"// "}
         {eyebrow}
-      </motion.p>
-      <motion.h2
-        variants={fadeUp}
+      </p>
+      <h2
         className={`mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-4xl ${
           onDark ? "text-white" : "text-stone-900 dark:text-white"
         }`}
       >
         {title}
-      </motion.h2>
+      </h2>
       {description && (
-        <motion.p
-          variants={fadeUp}
+        <p
           className={`mt-4 text-lg leading-relaxed ${
             onDark ? "text-stone-300" : "text-stone-600 dark:text-stone-400"
           }`}
         >
           {description}
-        </motion.p>
+        </p>
       )}
-    </motion.div>
+    </div>
   );
 }

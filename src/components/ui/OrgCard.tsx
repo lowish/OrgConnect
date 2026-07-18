@@ -1,7 +1,5 @@
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import type { Organization } from "../../types";
-import { fadeUp } from "../../lib/motion";
 import { OrgLogo } from "./OrgLogo";
 
 const MAX_VISIBLE_SKILLS = 4;
@@ -17,8 +15,7 @@ export function OrgCard({
   const hiddenCount = org.skills.length - visibleSkills.length;
 
   return (
-    <motion.article
-      variants={fadeUp}
+    <article
       className="group relative flex flex-col rounded-2xl border border-stone-200 bg-white p-6
         shadow-sm transition-all duration-300
         hover:-translate-y-1 hover:border-cardinal-200 hover:shadow-xl hover:shadow-stone-900/5
@@ -64,17 +61,14 @@ export function OrgCard({
           type="button"
           onClick={() => onSelect(org)}
           className="inline-flex items-center gap-1 text-sm font-medium text-cardinal-600
-            transition-colors hover:text-cardinal-700 focus-visible:outline-2
+            focus-visible:outline-2
             focus-visible:outline-offset-4 focus-visible:outline-cardinal-600
-            dark:text-cardinal-400 dark:hover:text-cardinal-300"
+            dark:text-cardinal-400"
         >
           View Details
-          <ArrowUpRight
-            className="size-4 transition-transform duration-200
-              group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-          />
+          <ArrowUpRight className="size-4" />
         </button>
       </div>
-    </motion.article>
+    </article>
   );
 }

@@ -4,27 +4,27 @@
   type Size = "sm" | "md" | "lg";
 
   const base =
-    "inline-flex cursor-pointer items-center justify-center gap-2 rounded-full font-medium " +
-    "transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 " +
-    "focus-visible:outline-cardinal-600 active:scale-[0.98]";
+    "inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium " +
+    "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cardinal-600 " +
+    "focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50 disabled:pointer-events-none disabled:opacity-50 " +
+    "active:scale-[0.98] dark:focus-visible:ring-offset-stone-950";
 
   const variants: Record<Variant, string> = {
     primary:
-      "bg-cardinal-600 text-white shadow-sm shadow-cardinal-600/25 " +
-      "hover:bg-cardinal-700 hover:shadow-md hover:shadow-cardinal-600/25",
+      "bg-stone-900 text-stone-50 shadow hover:bg-stone-900/90 " +
+      "dark:bg-stone-50 dark:text-stone-900 dark:hover:bg-stone-50/90",
     secondary:
-      "border border-stone-300 bg-white text-stone-900 hover:border-stone-400 hover:bg-stone-50 " +
-      "dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100 " +
-      "dark:hover:border-stone-600 dark:hover:bg-stone-800",
+      "border border-stone-200 bg-stone-50 text-stone-900 shadow-sm hover:bg-stone-100 " +
+      "dark:border-stone-800 dark:bg-stone-900 dark:text-stone-100 dark:hover:bg-stone-800",
     ghost:
-      "text-stone-600 hover:bg-stone-100 hover:text-stone-900 " +
-      "dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-100",
+      "text-stone-700 hover:bg-stone-100 hover:text-stone-900 " +
+      "dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-stone-100",
   };
 
   const sizes: Record<Size, string> = {
-    sm: "px-4 py-2 text-sm",
-    md: "px-5 py-2.5 text-sm",
-    lg: "px-6 py-3 text-base",
+    sm: "h-8 px-3 text-xs",
+    md: "h-9 px-4 py-2",
+    lg: "h-10 px-6 text-sm",
   };
 
   interface CommonProps {

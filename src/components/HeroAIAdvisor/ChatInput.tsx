@@ -53,7 +53,6 @@ export function ChatInput({ onSend, sending }: ChatInputProps) {
           }}
           onKeyDown={handleKeyDown}
           placeholder="Ask about your interests…"
-          aria-label="Message the AI Advisor. Enter sends, Shift plus Enter adds a new line."
           className="max-h-28 min-w-0 flex-1 resize-none bg-transparent py-1 text-sm
             text-stone-900 outline-none placeholder:text-stone-400
             dark:text-white dark:placeholder:text-stone-500"
@@ -64,17 +63,17 @@ export function ChatInput({ onSend, sending }: ChatInputProps) {
           disabled={!value.trim() || sending}
           whileTap={{ scale: 0.92 }}
           aria-label="Send message"
-          className="flex size-9 shrink-0 items-center justify-center rounded-full
+          className="flex size-6 shrink-0 items-center justify-center rounded-full
             bg-cardinal-600 text-white shadow-sm shadow-cardinal-900/25 transition-all
             hover:bg-cardinal-700 focus-visible:outline-2 focus-visible:outline-offset-2
             focus-visible:outline-cardinal-600
-            disabled:cursor-not-allowed disabled:opacity-40"
+            disabled:cursor-not-allowed disabled:opacity-50"
         >
           <SendHorizontal className="size-4" />
         </motion.button>
       </div>
-      <p className="mt-1.5 px-1 font-mono text-[10px] text-stone-500 dark:text-stone-500">
-        Enter to send · Shift+Enter for a new line
+      <p className="mt-2 px-1 font-mono text-[10px] text-stone-500 dark:text-stone-200">
+        Ask me anything about SOC orgs
       </p>
     </div>
   );
