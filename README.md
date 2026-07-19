@@ -14,72 +14,45 @@
 
 **→ [orgconnect.vercel.app](https://orgconnect.vercel.app)**
 
-Students currently rely on Facebook pages, posters, and word-of-mouth to find out which
-organizations exist and what they actually do. OrgConnect replaces that scattering with a
-single discovery experience: browse every org, read what each one offers, and describe your
-interests to get a reasoned recommendation.
+---
 
-It is a **discovery platform**, not a social network or a management system — there is no
-login, no membership registration, and no posting.
+## Demo
+
+https://github.com/lowish/OrgConnect/raw/main/public/OrgConnectDemo.mp4
+
+> Video not loading? [View it directly](public/OrgConnectDemo.mp4).
 
 ---
+
+## What it is
+
+Students find orgs through Facebook pages, posters, and word-of-mouth. OrgConnect replaces
+that with one discovery experience: browse every org, read what each offers, and describe
+your interests to get a reasoned recommendation.
+
+A **discovery platform** — no login, no membership registration, no posting.
 
 ## Features
 
-### Organization showcase
-All 10 official School of Computing organizations — GDG on Campus, the SoC Student Council,
-Code Geeks, CIA, LOOP, MAFIA, AWS SBG, The Access Point and others — each as an interactive
-card carrying its logo, category, description, and the skills it teaches.
-
-### Organization detail pages
-A dedicated page per org covering its overview, mission and vision, what it offers, skills,
-activities, workshops, competitions, events, officers, gallery, and contact links. Sections
-whose data is absent simply don't render, so no page shows an empty shell.
-
-Organizations whose details haven't been officially confirmed are flagged **Needs
-Verification** rather than presented as fact.
-
-### AI Recommendation Advisor
-A floating chat widget that turns a description of your interests into org recommendations
-**with reasons**. It runs entirely in the browser as a transparent, rule-based engine over
-[`src/data/organizations.ts`](src/data/organizations.ts) — **no API key, no external calls,
-no cost**. Four layers: understand → intent → rank → compose.
-
-Its guiding constraint: it answers *only* from the knowledge base. If nothing in the roster
-matches what you asked for, it says so instead of inventing an org that does.
-
-### Connect With Students
-A live student directory fed by a Google Form. Responses land in a Google Sheet, and an
-Apps Script Web App publishes them as JSON that the site validates and renders — so a new
-submission appears on the next page refresh with no manual editing. See
-[`google-apps-script/`](google-apps-script/). Without an endpoint configured, the section
-falls back to built-in sample profiles.
-
-### Events
-Upcoming organization events with title, date, venue, description, and host.
-
----
+- **Organization showcase** — all 10 official SoC organizations as interactive cards with logo, category, description, and the skills each teaches.
+- **Detail pages** — overview, mission and vision, offerings, activities, officers, gallery, and contacts. Empty sections don't render; unconfirmed orgs are flagged **Needs Verification** rather than presented as fact.
+- **AI Recommendation Advisor** — a chat widget that returns org matches *with reasons*. Rule-based, runs entirely in the browser over [`src/data/organizations.ts`](src/data/organizations.ts) — no API key, no external calls, no cost. It answers only from the knowledge base; if nothing matches, it says so instead of inventing an org.
+- **Connect With Students** — live directory fed by a Google Form → Sheet → Apps Script JSON endpoint, validated before render. See [`google-apps-script/`](google-apps-script/). Falls back to sample profiles when unconfigured.
+- **Events** — upcoming org events with date, venue, and host.
 
 ## Tech stack
 
-| | |
-|---|---|
-| **Framework** | React 18 + TypeScript 5.6 |
-| **Build** | Vite 6 |
-| **Styling** | Tailwind CSS 4 (via `@tailwindcss/vite`) |
-| **Animation** | Framer Motion 11 |
-| **Icons** | Lucide React |
-| **Validation** | Zod 3 |
-| **Hosting** | Vercel |
+React 18 · TypeScript 5.6 · Vite 6 · Tailwind CSS 4 · Framer Motion 11 · Lucide React · Zod 3 · Vercel
 
-Routing is hash-based (`#organizations`, `#organization/<id>`, `#students/all`, `#legal/…`)
-and handled directly in [`src/App.tsx`](src/App.tsx) — no router dependency.
+Routing is hash-based and handled in [`src/App.tsx`](src/App.tsx) — no router dependency.
+Untrusted input is parsed through [`src/schemas/`](src/schemas/); rows that fail validation
+are dropped rather than rendered.
 
 ---
 
 ## Getting started
 
-**Requirements:** Node.js 18+
+Requires Node.js 18+.
 
 ```bash
 git clone https://github.com/lowish/OrgConnect.git
@@ -88,19 +61,13 @@ npm install
 npm run dev
 ```
 
-The dev server prints a local URL (usually `http://localhost:5173`).
-
-### Scripts
-
 | Command | Description |
 |---|---|
-| `npm run dev` | Start the Vite dev server with HMR |
-| `npm run build` | Type-check (`tsc -b`) and build to `dist/` |
-| `npm run preview` | Serve the production build locally |
+| `npm run dev` | Vite dev server with HMR |
+| `npm run build` | Type-check and build to `dist/` |
+| `npm run preview` | Serve the production build |
 
-### Environment variables
-
-Copy the example file and fill in what you need:
+### Environment
 
 ```bash
 cp .env.example .env.local
@@ -108,74 +75,20 @@ cp .env.example .env.local
 
 | Variable | Required | Description |
 |---|---|---|
-| `VITE_STUDENTS_ENDPOINT` | No | Deployed Apps Script Web App URL (ends in `/exec`) serving the student directory as JSON. Leave blank to show sample profiles. |
+| `VITE_STUDENTS_ENDPOINT` | No | Apps Script Web App URL (ends in `/exec`) serving the student directory as JSON. Blank shows sample profiles. |
 
-`.env.local` is git-ignored and must never be committed. Only `.env.example` is tracked.
-
-> Vite exposes every `VITE_`-prefixed variable to the browser bundle. Never put a secret
-> behind that prefix.
-
----
-
-## Project structure
-
-```
-src/
-├── App.tsx                  Hash routing + page composition
-├── components/
-│   ├── HeroAIAdvisor/       AI advisor chat — advisor.ts is the engine
-│   ├── layout/              Navbar, Footer, Background
-│   ├── org-detail/          Organization detail page building blocks
-│   ├── sections/            Hero, OrgShowcase, EventsPreview, ConnectStudents, …
-│   └── ui/                  Reusable primitives (Button, OrgCard, StudentCard, …)
-├── data/                    organizations.ts, events.ts, students.ts
-├── lib/                     Data access + hooks (useStudents, useTheme, orgLogo, color)
-├── schemas/                 Zod schemas — the validation boundary
-└── index.css                Tailwind theme tokens
-
-google-apps-script/          Google Sheet → JSON endpoint (Code.gs + setup guide)
-```
-
-**Data flows through Zod.** [`src/schemas/`](src/schemas/) holds the single source of truth
-for both organizations and students. Untrusted input — anything from the Google Sheet — is
-parsed and normalized there before any component sees it; rows that fail validation are
-dropped rather than rendered.
-
----
-
-## Design
-
-Dark-first, aiming closer to Linear/Vercel/Stripe than to a traditional university site:
-large typography, spacious layout, monochrome palette with an emerald accent, and HAU's
-red/gold reserved for brand moments only. Light mode is available via the navbar toggle and
-persists in `localStorage`.
-
-Accessibility is treated as a requirement: semantic markup, keyboard-navigable controls, and
-`<MotionConfig reducedMotion="user">` so every animation stills for anyone who has set
-`prefers-reduced-motion`.
-
----
+> Vite exposes every `VITE_`-prefixed variable to the browser bundle — never put a secret
+> behind that prefix. `.env.local` is git-ignored; only `.env.example` is tracked.
 
 ## Deployment
 
-Deployed on [**Vercel**](https://vercel.com). Vercel auto-detects Vite, so the defaults work:
-
-| Setting | Value |
-|---|---|
-| Framework preset | Vite |
-| Build command | `npm run build` |
-| Output directory | `dist` |
-| Install command | `npm install` |
-
-Add `VITE_STUDENTS_ENDPOINT` under **Project Settings → Environment Variables** if you want
-the live student directory in production. Every push to `main` triggers a deployment.
+Vercel auto-detects Vite, so the defaults work (`npm run build` → `dist`). Add
+`VITE_STUDENTS_ENDPOINT` under **Project Settings → Environment Variables** for the live
+student directory. Every push to `main` deploys.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/lowish/OrgConnect)
 
 ---
 
-## Acknowledgements
-
 Built for the **Holy Angel University School of Computing**. Organization details come from
-official university and organization sources; anything unverified is labelled as such in the
-UI rather than presented as confirmed.
+official sources; anything unverified is labelled as such in the UI.
