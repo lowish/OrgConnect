@@ -18,7 +18,7 @@
 
 ## Demo
 
-https://github.com/lowish/OrgConnect/raw/main/public/OrgConnectDemo.mp4
+https://github.com/lowish/OrgConnect/raw/main/public/OrgConnectDemoLive.mp4
 
 > Video not loading? [View it directly](public/OrgConnectDemo.mp4).
 
