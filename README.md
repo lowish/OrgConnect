@@ -1,15 +1,8 @@
 # OrgConnect
 
-<p>
-  <a href="https://orgconnect.vercel.app">
-    <img src="https://img.shields.io/badge/Vercel-Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live on Vercel" />
-  </a>
-  <img src="https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 18" />
-  <img src="https://img.shields.io/badge/TypeScript-5.6-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript 5.6" />
-  <img src="https://img.shields.io/badge/Vite-6-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite 6" />
-  <img src="https://img.shields.io/badge/Tailwind-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS 4" />
-</p>
+**Discover official School of Computing organizations, explore what they offer, and receive personalized recommendations through an AI-powered advisor.**
 
+<<<<<<< HEAD
 **Discover official School of Computing organizations, explore what they offer, and receive personalized recommendations through an AI-powered advisor.**
 
 **→ [orgconnect.vercel.app](https://orgconnect.vercel.app)**
@@ -21,6 +14,9 @@
 https://github.com/lowish/OrgConnect/raw/main/public/OrgConnectDemoLive.mp4
 
 > Video not loading? [View it directly](public/OrgConnectDemo.mp4).
+=======
+https://github.com/user-attachments/assets/06b6388b-40f7-4d68-a06c-969476be2b4d
+>>>>>>> 77722b61cfff5947a789bda48ec0682d6bd3c9de
 
 ---
 
