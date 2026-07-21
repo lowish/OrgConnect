@@ -10,7 +10,7 @@
   <img src="https://img.shields.io/badge/Tailwind-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS 4" />
 </p>
 
-**Every official Holy Angel University School of Computing organization in one place — with an AI advisor that matches you to the ones that fit.**
+**Discover official School of Computing organizations, explore what they offer, and receive personalized recommendations through an AI-powered advisor.**
 
 **→ [orgconnect.vercel.app](https://orgconnect.vercel.app)**
 
